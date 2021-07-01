@@ -21,14 +21,13 @@ class Validator {
             for (let i = 0; i < this.validations.length; i++) {
                 //verifica se a validação atual existe no input
                 if(input.getAttribute(this.validations[i]) != null){
-                    //Limpa String para virar método
-                    let method = this.validations[i].replace('data-', '').replace('-', '').replace('l', 'L');
-                
+                   
                     //valor do atributo da validação
                     let value = input.getAttribute(this.validations[i]);
                     
                     //invocar o método
-                    this[method](input, value);
+                    let fieldName = this.validations[i];
+                    this[methodName[fieldName]](input, value);
                 }
                 
             }
@@ -69,3 +68,8 @@ submit.addEventListener("click", function(e) {
 
     validator.validate(form);
 });
+
+let methodName = {
+    'data-min-length': 'minLength',
+
+}
