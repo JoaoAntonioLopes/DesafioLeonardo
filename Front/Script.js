@@ -14,7 +14,6 @@ class Validator {
         
         //transforma HTMLCollection => array
         let inputsArray = [...inputs];
-        console.log(inputsArray);
         //loop nos inputs e validação mediante ao que for encontrado
         inputsArray.forEach(function(input){
            
