@@ -9,7 +9,7 @@ app.post('/register', (req, res) => {
 
     const user = req.body;
     saveUser(user);
-    res.send('gay');
+    res.send();
 
     console.log('foi o post')
 });

@@ -78,12 +78,10 @@ let submit = document.getElementById("registrar");
 let validator = new Validator();
 //evento de disparo
 submit.addEventListener("click", function(e) {
-    console.log('gay');
     e.preventDefault();
-    
     let inputs = validator.validate(form);
     sendUser(inputs);
-    
+    alert("Cadastro realizado com sucesso!");
 });
 
 let methodName = {
