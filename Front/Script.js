@@ -1,6 +1,7 @@
 import {sendUser} from './UserRegister.js';
 
-class Validator {
+
+export class Validator {
     
     constructor(){
         this.validations = [
@@ -31,7 +32,7 @@ class Validator {
                     //invocar o método
                     this[methodName[attVal]](input, value);
                     
-                }// futuro else?
+                }
                 
             }
             objeto[input.name] = input.value;
@@ -80,8 +81,13 @@ let validator = new Validator();
 submit.addEventListener("click", function(e) {
     e.preventDefault();
     let inputs = validator.validate(form);
-    sendUser(inputs);
-    alert("Cadastro realizado com sucesso!");
+    sendUser(inputs)
+    .then((response)=>{
+        alert(response);
+    })
+    .catch((err)=>{
+        console.error(err);
+    })
 });
 
 let methodName = {

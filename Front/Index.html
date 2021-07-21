@@ -12,23 +12,23 @@
             <form id="register-form" onsubmit="return false;">
                 <div class="full-box">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="email@email.com.br" data-min-length="14">
+                    <input type="email" name="email" id="email" placeholder="email@email.com.br" data-min-length="14" required>
                 </div>
                 <div class="half-box spacing">
                     <label for="name">Nome</label>
-                    <input type="text" name="name" id="name" placeholder="Digite seu nome" data-min-length="5">
+                    <input type="text" name="name" id="name" placeholder="Digite seu nome" data-min-length="5" required>
                 </div>
                 <div class="half-box">
                     <label for="lastName">Sobrenome</label>
-                    <input type="text" name="lastName" id="lastName" placeholder="Digite seu nome" data-min-length="4">
+                    <input type="text" name="lastName" id="lastName" placeholder="Digite seu nome" data-min-length="4" required>
                 </div>
                 <div class="half-box spacing">
                     <label for="date">Data de Nascimento</label>
-                    <input type="date" name="date" id="date" max="2001-12-31" data-min-length="8">
+                    <input type="date" name="date" id="date" max="2001-12-31" data-min-length="8" required>
                 </div>
                 <div class="half-box">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF" data-min-length="11">
+                    <label for="_id">CPF</label>
+                    <input type="text" name="_id" id="_id" placeholder="Digite seu CPF" data-min-length="11" required>
                 </div>
                 
                 <div class="full-box">
@@ -47,5 +47,5 @@
         </div>
         <p class="error-validation template"></p>
     </body>
-    <script src="Main.js"></script>
+    <script src="main.js"></script>
 </html>

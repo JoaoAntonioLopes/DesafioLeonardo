@@ -62,7 +62,7 @@ label{
     font-size: .8rem;
 }
 
-input{
+input, #button{
     border-bottom: 2px solid #323232;
     padding: 10px;
     font-size: .9rem;
@@ -73,7 +73,7 @@ input:focus{
     border-color: #E60084;
 }
 
-input[type="submit"]{
+input[type="submit"], #button{
     background-color: green;
     color: white;
     border: none;
@@ -82,7 +82,7 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-#cpf{
+#_id{
     padding-top: 14px;
 }
 
@@ -101,4 +101,8 @@ input[type="submit"]{
 }
 .template{
     display: none;
+}
+.invisible {
+    display: none;
+    visibility: hidden;
 }
