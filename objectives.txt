@@ -1,4 +1,12 @@
 1º Front validations (min inputs etc)
 2º POST backend - DB action
 3º DB checks if has user
-4º Study memory hierarchy
+4º Study memory hierarchy (to be done);
+
+1º API Arch
+2º Communication payload
+3º Sintax
+
+
+4º Error Handleling
+ EX -5º Domain moddeling

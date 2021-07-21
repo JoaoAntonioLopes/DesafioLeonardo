@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post('/register', async function (req, res) {
+app.post('/User', async function (req, res) {
 
     //HTTP referente a criado!
     // o res vai mandar o conteúdo da resposta, este pode ser o caminho do estimulo
