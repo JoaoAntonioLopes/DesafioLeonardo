@@ -2,7 +2,7 @@ import mongodb from 'mongodb';
 // Connection URL
 const url = 'mongodb://localhost:27017';
 
-// Mongo instance, DB name and collection name
+// Mongo instance
 const client = new mongodb.MongoClient(url);
 
 // Use connect method to connect to the server
@@ -15,11 +15,11 @@ export function connectMongo(){
 }
 
 //Search user in DB and
-export async function findUser(user){
+export async function findUser(id){
   const db = getDb();
   const collection = db.collection('usuarios');
-  const searchResult = await collection.find({_id: user._id}).toArray();
-  return searchResult;
+  const searchResult = await collection.find({_id: id}).toArray();
+  return searchResult[0];
 }
 
 function getDb(){

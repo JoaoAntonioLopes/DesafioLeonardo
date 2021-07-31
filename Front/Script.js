@@ -1,3 +1,4 @@
+
 import {sendUser} from './UserRegister.js';
 
 
@@ -9,36 +10,49 @@ export class Validator {
             'max',
         ]
     }
-    //iniciar validação em todos os campos
+    //Validate Inputs data-format
     validate(form){
-        let objeto = {};
-        //pegar os inputs
-        let inputs = form.getElementsByTagName("input");
-        
+        let user = {};
+
+        //get inputs reference
+        let inputs = form.getElementsByTagName("input"); 
+       
+        //console.log(inputs);
+
+        //future refactoring forEach >> for
+        // for(var input of inputs){
+        //     for(var i = 0; i < this.validations.length; i++){
+        //         let value = input.getAttribute(this.validations[i]);
+        //         if(value != null) this[methodName[this.validations[i]]] (input, value);
+        //     }
+        // }
+
         //transforma HTMLCollection => array
         let inputsArray = [...inputs];
         //loop nos inputs e validação mediante ao que for encontrado
         inputsArray.forEach(function(input){
-            
-            //loop em todas as validações existentes
+           
+           //loop em todas as validações existentes
             for (let i = 0; i < this.validations.length; i++) {
-                let attVal = this.validations[i];
                 //verifica se a validação atual existe no input
-                if(input.getAttribute(attVal) != null){
-                    
+                if(input.getAttribute(this.validations[i]) != null){
+                   
                     //valor do atributo da validação
-                    let value = input.getAttribute(attVal);
+                    let value = input.getAttribute(this.validations[i]);
                     
                     //invocar o método
-                    this[methodName[attVal]](input, value);
-                    
+                    let fieldName = this.validations[i];
+                    this[methodName[fieldName]](input, value);
                 }
                 
             }
-            objeto[input.name] = input.value;
         }, this);
-        
-        return objeto;
+       
+        if (user['btn-submit'] || user['btn-submit'] == ''){
+            delete user['btn-submit'];
+        }
+        console.log(user);
+        return user;
     }
     //verifica se o input tem um número mínimo de caracteres
     minLength(input, minValue){
@@ -81,6 +95,7 @@ let validator = new Validator();
 submit.addEventListener("click", function(e) {
     e.preventDefault();
     let inputs = validator.validate(form);
+    console.log(inputs);
     sendUser(inputs)
     .then((response)=>{
         alert(response);
@@ -94,4 +109,3 @@ let methodName = {
     'data-min-length': 'minLength',
     'max': 'minAge'
 }
-
